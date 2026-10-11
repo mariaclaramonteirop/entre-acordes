@@ -235,36 +235,29 @@ nav.scrolled .btn-orcamento:hover {
   box-shadow: 0 8px 24px rgba(139, 69, 19, 0.4) !important;
 }
 
-/* Hambúrguer responsivo para mobile */
+/* Mobile menu (hamburger) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  gap: 6px;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 6px;
+  z-index: 1002;
+}
+
 .hamburger span {
   display: block;
-  width: 26px;
-  height: 2px;
+  width: 28px;
+  height: 2.5px;
   background: #FFFFFF;
-  transition: all 0.3s;
+  border-radius: 2px;
+  transition: all 0.35s ease;
 }
 
 nav.scrolled .hamburger span {
   background: var(--cobre);
-}
-
-/* Mobile menu */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  gap: 5px;
-  cursor: pointer;
-  background: none;
-  border: none;
-  padding: 4px;
-}
-
-.hamburger span {
-  display: block;
-  width: 26px;
-  height: 2px;
-  background: var(--cobre);
-  transition: all 0.3s;
 }
 
 /* ── BOTÕES GERAIS ARREDONDADOS ── */
@@ -1392,25 +1385,153 @@ footer {
   line-height: 1.8;
 }
 
-/* ── RESPONSIVO ── */
-@media (max-width: 900px) {
+/* ── RESPONSIVO (TABLETS E CELULARES) ── */
+@media (max-width: 992px) {
+  nav {
+    height: 80px;
+    padding: 0 6%;
+  }
+
+  nav.scrolled {
+    height: 70px;
+  }
+
+  .nav-logo-text .nome {
+    font-size: 1.3rem;
+  }
+
+  .nav-logo-text .sub {
+    font-size: 0.6rem;
+  }
+
+  /* Hamburger ativo em tablets e mobile */
+  .hamburger {
+    display: flex;
+  }
+
+  /* Gaveta de navegação móvel translúcida com glassmorphism elegante */
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background: rgba(36, 20, 11, 0.95); /* Fundo marrom escuro translúcido combinando com o tema */
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    padding: 30px 6% 36px;
+    gap: 22px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.4);
+    align-items: center;
+    text-align: center;
+    transition: all 0.35s ease;
+  }
+
+  .nav-links.open {
+    display: flex;
+    animation: fadeInDown 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Quando nav tem scroll, o menu móvel combina com o bege ou mantém contraste impecável */
+  nav.scrolled .nav-links {
+    background: rgba(244, 239, 230, 0.98); /* Bege translúcido fosco */
+    border-bottom: 2px solid rgba(139, 69, 19, 0.2);
+  }
+
+  .nav-links a {
+    font-size: 0.92rem;
+    padding: 10px 16px;
+    width: 100%;
+    color: #FFFFFF;
+    text-shadow: none;
+  }
+
+  nav.scrolled .nav-links a {
+    color: var(--texto);
+  }
+
+  .btn-orcamento {
+    width: 100%;
+    max-width: 280px;
+    padding: 13px 28px !important;
+    text-align: center;
+    margin-top: 6px;
+  }
+
   .galeria-grid { grid-template-columns: repeat(2, 1fr); }
-  .galeria-item.tall { grid-row: span 1; }
-  .galeria-item.wide { grid-column: span 2; }
   .contato-wrapper { grid-template-columns: 1fr; }
   .footer-inner { grid-template-columns: 1fr 1fr; }
   .footer-brand { grid-column: span 2; }
 }
 
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 680px) {
-  .nav-links { display: none; flex-direction: column; position: absolute; top: 80px; left: 0; right: 0; background: var(--marfim); padding: 24px 5%; gap: 20px; border-bottom: 1px solid var(--creme); }
-  .nav-links.open { display: flex; }
-  .hamburger { display: flex; }
-  .galeria-grid { grid-template-columns: 1fr; }
-  .galeria-item.wide { grid-column: span 1; }
+  nav {
+    padding: 0 5%;
+    height: 76px;
+  }
+
+  nav.scrolled {
+    height: 66px;
+  }
+
+  .nav-logo {
+    gap: 10px;
+  }
+
+  .nav-logo img {
+    height: 42px;
+  }
+
+  nav.scrolled .nav-logo img {
+    height: 38px;
+  }
+
+  .nav-logo-text .nome {
+    font-size: 1.15rem;
+  }
+
+  .nav-logo-text .sub {
+    font-size: 0.55rem;
+  }
+
+  .hero {
+    padding-top: 90px;
+    padding-bottom: 60px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.4rem, 9.5vw, 3.8rem);
+    line-height: 1.18;
+  }
+
+  .hero-sub {
+    font-size: 0.95rem;
+    margin: 16px auto 36px;
+  }
+
+  .btn-hero-translucido {
+    width: 100%;
+    max-width: 290px;
+    padding: 15px 24px;
+    font-size: 0.8rem;
+  }
+
   .form-row { grid-template-columns: 1fr; }
-  .form-card { padding: 32px 24px; }
+  .form-card { padding: 32px 20px; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-brand { grid-column: span 1; }
-  section { padding: 70px 5%; }
+  section { padding: 60px 5%; }
 }
