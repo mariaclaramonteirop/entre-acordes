@@ -1931,5 +1931,10 @@ footer {
   padding: 38px 0 0;
   background: transparent;
   color: var(--cinza);
+}
+
+/* Feed do Instagram temporariamente desativado até a integração oficial. */
+.insta-visual-card.feed-inactive {
+  display: none;
   section { padding: 60px 5%; }
 }
