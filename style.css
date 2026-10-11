@@ -1098,6 +1098,16 @@ section { padding: 90px 5%; }
   align-items: center;
 }
 
+.insta-container.no-visual {
+  display: block;
+  max-width: 760px;
+  text-align: center;
+}
+
+.insta-container.no-visual .insta-actions {
+  justify-content: center;
+}
+
 .insta-content h2 {
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(2rem, 4vw, 2.8rem);
@@ -1156,23 +1166,74 @@ section { padding: 90px 5%; }
 }
 
 .equipe-visual {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 440px;
-  overflow: hidden;
+  min-height: 0;
   padding: 0;
   background: transparent;
   border: 0;
   box-shadow: none;
 }
 
-.equipe-visual img {
+.equipe-grid {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.equipe-member {
+  min-width: 0;
+  margin: 0;
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.equipe-member img {
   display: block;
   width: 100%;
-  max-width: 460px;
-  height: auto;
-  object-fit: contain;
+  height: 330px;
+  object-fit: cover;
+}
+
+.equipe-member:nth-child(1) img {
+  object-position: 58% center;
+}
+
+.equipe-member:nth-child(2) img {
+  object-position: 58% center;
+}
+
+.equipe-member:nth-child(3) img {
+  object-position: 58% center;
+}
+
+.equipe-member figcaption {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 28px 10px 12px;
+  background: linear-gradient(transparent, rgba(30, 12, 4, 0.88));
+  color: var(--branco);
+}
+
+.equipe-member figcaption strong,
+.equipe-member figcaption span {
+  display: block;
+}
+
+.equipe-member figcaption strong {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+}
+
+.equipe-member figcaption span {
+  margin-top: 2px;
+  color: var(--dourado);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
 }
 
 .insta-header {
