@@ -1155,6 +1155,26 @@ section { padding: 90px 5%; }
   width: 100%;
 }
 
+.equipe-visual {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 440px;
+  overflow: hidden;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.equipe-visual img {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  object-fit: contain;
+}
+
 .insta-header {
   display: flex;
   align-items: center;
@@ -1931,10 +1951,4 @@ footer {
   padding: 38px 0 0;
   background: transparent;
   color: var(--cinza);
-}
-
-/* Feed do Instagram temporariamente desativado até a integração oficial. */
-.insta-visual-card.feed-inactive {
-  display: none;
-  section { padding: 60px 5%; }
 }
