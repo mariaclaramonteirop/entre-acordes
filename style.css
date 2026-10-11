@@ -18,6 +18,190 @@
   --sombra:      rgba(139,69,19,0.15);
 }
 
+/* ── PÁGINA DE LINKS PARA REDES SOCIAIS ── */
+.links-page {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(201, 169, 110, 0.28), transparent 38%),
+    linear-gradient(160deg, #fbf8f3 0%, #f0e6d9 100%);
+}
+
+.links-main {
+  width: calc(100% - 32px);
+  max-width: 520px;
+  min-height: 100vh;
+  margin: 0 auto;
+  padding: 48px 0 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.links-header {
+  text-align: center;
+  margin-bottom: 28px;
+}
+
+.links-header > a {
+  display: inline-block;
+  transition: transform 0.3s ease;
+}
+
+.links-header > a:hover {
+  transform: translateY(-3px);
+}
+
+.links-logo {
+  display: block;
+  width: 94px;
+  height: 94px;
+  object-fit: contain;
+  margin: 0 auto 16px;
+  mix-blend-mode: multiply;
+}
+
+.links-header h1 {
+  color: var(--cobre);
+  font-size: 2.15rem;
+  line-height: 1;
+  letter-spacing: 0.03em;
+}
+
+.links-header p {
+  color: var(--cinza);
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  margin-top: 8px;
+}
+
+.links-location {
+  display: block;
+  color: var(--texto);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin-top: 16px;
+}
+
+.links-list {
+  width: 100%;
+  display: grid;
+  gap: 13px;
+}
+
+.link-card {
+  min-height: 62px;
+  display: grid;
+  grid-template-columns: 30px 1fr 24px;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border: 1px solid rgba(139, 69, 19, 0.18);
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.74);
+  color: var(--texto);
+  box-shadow: 0 8px 22px rgba(80, 40, 15, 0.07);
+  text-decoration: none;
+  font-size: 0.82rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+}
+
+.link-card:hover,
+.link-card:focus-visible {
+  transform: translateY(-3px);
+  background: var(--branco);
+  box-shadow: 0 12px 28px rgba(80, 40, 15, 0.14);
+}
+
+.link-card:focus-visible {
+  outline: 2px solid var(--dourado);
+  outline-offset: 3px;
+}
+
+.link-card-primary {
+  background: linear-gradient(135deg, var(--cobre) 0%, var(--cobre-light) 100%);
+  border-color: transparent;
+  color: var(--branco);
+}
+
+.link-card-primary:hover,
+.link-card-primary:focus-visible {
+  background: linear-gradient(135deg, var(--cobre-dark) 0%, var(--cobre) 100%);
+}
+
+.link-card-icon {
+  width: 30px;
+  color: var(--cobre);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.55rem;
+  font-weight: 600;
+  line-height: 1;
+  text-align: center;
+}
+
+.link-card-primary .link-card-icon {
+  color: var(--dourado);
+}
+
+.link-card-arrow {
+  color: var(--dourado);
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: right;
+}
+
+.links-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  margin-top: auto;
+  padding-top: 38px;
+  color: var(--cinza);
+  font-size: 0.7rem;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.links-footer a {
+  color: var(--cobre);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.links-footer a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 480px) {
+  .links-main {
+    padding-top: 32px;
+  }
+
+  .links-header {
+    margin-bottom: 22px;
+  }
+
+  .links-logo {
+    width: 82px;
+    height: 82px;
+    margin-bottom: 13px;
+  }
+
+  .links-header h1 {
+    font-size: 1.95rem;
+  }
+
+  .link-card {
+    min-height: 58px;
+    padding: 12px 15px;
+    font-size: 0.76rem;
+  }
+}
+
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -1721,5 +1905,31 @@ footer {
   .form-card { padding: 32px 20px; }
   .footer-inner { grid-template-columns: 1fr; }
   .footer-brand { grid-column: span 1; }
+}
+
+/* Elementos semânticos da página de links não usam os estilos globais de
+   navbar e rodapé das páginas institucionais. */
+.links-page .links-list {
+  position: static;
+  z-index: auto;
+  width: 100%;
+  height: auto;
+  min-height: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  grid-template-columns: 1fr;
+  justify-content: stretch;
+}
+
+.links-page .links-footer {
+  position: static;
+  width: auto;
+  min-height: 0;
+  padding: 38px 0 0;
+  background: transparent;
+  color: var(--cinza);
   section { padding: 60px 5%; }
 }
