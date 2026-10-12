@@ -1129,6 +1129,20 @@ section { padding: 90px 5%; }
   flex-wrap: wrap;
 }
 
+.indica-link {
+  color: var(--dourado);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-style: italic;
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.indica-link:hover {
+  color: var(--branco);
+  transform: translateX(3px);
+}
+
 .btn-insta {
   display: inline-flex;
   align-items: center;
@@ -1507,6 +1521,208 @@ footer {
   font-size: clamp(2.2rem, 5vw, 3.8rem);
   color: var(--branco);
   font-weight: 300;
+}
+
+/* ── ENTRE ACORDES INDICA ── */
+.indica-page {
+  background: var(--marfim);
+}
+
+.indica-intro {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.indica-intro p {
+  max-width: 620px;
+  margin: 0 auto;
+  color: var(--cinza);
+  line-height: 1.8;
+}
+
+.indica-grid {
+  max-width: 1080px;
+  margin: 44px auto 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.indica-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+  padding: 28px 24px;
+  background: var(--branco);
+  border-top: 3px solid var(--dourado);
+  box-shadow: 0 8px 26px var(--sombra);
+}
+
+.indica-card-icon {
+  color: var(--cobre);
+  font-size: 2rem;
+  margin-bottom: 16px;
+}
+
+.indica-card h3 {
+  color: var(--cobre);
+  font-size: 1.7rem;
+  margin-bottom: 10px;
+}
+
+.indica-card p {
+  color: var(--cinza);
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.indica-card-link {
+  display: inline-block;
+  margin-top: auto;
+  padding-top: 24px;
+  color: var(--cobre);
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.indica-card-link:hover {
+  color: var(--cobre-light);
+}
+
+.indica-tips {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.indica-tip {
+  display: grid;
+  grid-template-columns: 56px 1fr;
+  gap: 20px;
+  align-items: start;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(139, 69, 19, 0.14);
+}
+
+.indica-tip-number {
+  display: flex;
+  width: 46px;
+  height: 46px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--dourado);
+  border-radius: 50%;
+  color: var(--cobre);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.35rem;
+}
+
+.indica-tip h3 {
+  color: var(--cobre);
+  font-size: 1.45rem;
+  margin-bottom: 5px;
+}
+
+.indica-tip p {
+  color: var(--cinza);
+  line-height: 1.7;
+}
+
+.indica-preview {
+  background: var(--creme);
+}
+
+.indica-preview-grid {
+  max-width: 1040px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.indica-preview-card {
+  position: relative;
+  padding: 30px 26px 28px;
+  background: var(--branco);
+  border-left: 3px solid var(--dourado);
+  box-shadow: 0 8px 24px rgba(80, 40, 15, 0.08);
+}
+
+.indica-preview-number {
+  display: block;
+  color: var(--dourado);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  line-height: 1;
+  margin-bottom: 20px;
+}
+
+.indica-preview-card h3 {
+  color: var(--cobre);
+  font-size: 1.55rem;
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+
+.indica-preview-card p {
+  color: var(--cinza);
+  font-size: 0.88rem;
+  line-height: 1.7;
+}
+
+.indica-preview-action {
+  margin-top: 34px;
+  text-align: center;
+}
+
+.developer-credit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 0.68rem;
+  text-decoration: none;
+  transition: color 0.25s ease;
+}
+
+.developer-credit:hover {
+  color: var(--dourado);
+}
+
+.developer-credit img {
+  width: 54px;
+  height: auto;
+  opacity: 0.8;
+  transition: opacity 0.25s ease;
+}
+
+.developer-credit:hover img {
+  opacity: 1;
+}
+
+@media (max-width: 800px) {
+  .indica-grid,
+  .indica-preview-grid {
+    grid-template-columns: 1fr;
+    max-width: 560px;
+  }
+}
+
+@media (max-width: 600px) {
+  .indica-tip {
+    grid-template-columns: 42px 1fr;
+    gap: 14px;
+  }
+
+  .indica-tip-number {
+    width: 38px;
+    height: 38px;
+  }
 }
 
 /* Nossa história */
@@ -2012,4 +2228,13 @@ footer {
   padding: 38px 0 0;
   background: transparent;
   color: var(--cinza);
+}
+
+.links-page .developer-credit {
+  margin-top: 14px;
+  color: var(--cinza);
+}
+
+.links-page .developer-credit:hover {
+  color: var(--cobre);
 }
