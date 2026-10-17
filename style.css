@@ -144,6 +144,19 @@
   text-align: center;
 }
 
+.link-card-icon img {
+  display: block;
+  width: 22px;
+  height: 22px;
+  margin: 0 auto;
+}
+
+.link-card-icon-spotify {
+  /*   color: #79390e; */
+  color: #79390e;
+  color: #6b3410;
+}
+
 .link-card-primary .link-card-icon {
   color: var(--dourado);
 }
