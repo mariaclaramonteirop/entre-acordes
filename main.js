@@ -238,6 +238,28 @@ document.querySelectorAll('.faq-pergunta').forEach(btn => {
 // ── FORMULÁRIO DE CONTATO (COM ENVIO DIRETO AO WHATSAPP) ──
 const form    = document.getElementById('contato-form');
 const success = document.getElementById('form-success');
+const telefoneInput = document.getElementById('telefone');
+
+function aplicarMascaraTelefone(valor) {
+  const numeros = valor.replace(/\D/g, '').slice(0, 11);
+
+  if (numeros.length <= 2) {
+    return numeros.length ? `(${numeros}` : '';
+  }
+  if (numeros.length <= 7) {
+    return `(${numeros.slice(0, 2)}) ${numeros.slice(2)}`;
+  }
+  if (numeros.length <= 10) {
+    return `(${numeros.slice(0, 2)}) ${numeros.slice(2, 6)}-${numeros.slice(6)}`;
+  }
+  return `(${numeros.slice(0, 2)}) ${numeros.slice(2, 7)}-${numeros.slice(7)}`;
+}
+
+if (telefoneInput) {
+  telefoneInput.addEventListener('input', () => {
+    telefoneInput.value = aplicarMascaraTelefone(telefoneInput.value);
+  });
+}
 
 if (form && success) {
   form.addEventListener('submit', (e) => {
@@ -254,8 +276,14 @@ if (form && success) {
       mensagem:       form.mensagem?.value.trim()       || '',
     };
 
-    if (!data.nome_noivo || !data.telefone || !data.tipo_evento || !data.data_evento || !data.horario_evento) {
+    const telefoneNumeros = data.telefone.replace(/\D/g, '');
+
+    if (!data.nome_noivo || !telefoneNumeros || !data.tipo_evento || !data.data_evento || !data.horario_evento) {
       alert('Por favor, preencha os campos obrigatórios (marcados com *).');
+      return;
+    }
+    if (telefoneNumeros.length < 10) {
+      alert('Por favor, informe um WhatsApp ou telefone válido com DDD.');
       return;
     }
 
