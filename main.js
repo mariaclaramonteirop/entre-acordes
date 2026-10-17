@@ -180,7 +180,7 @@ if (modal) {
         <span class="icon">${type === 'video' ? '🎥' : '📷'}</span>
         <p><strong>${title}</strong></p>
         <span style="font-size:0.85rem;color:#C9A96E;letter-spacing:0.1em;text-transform:uppercase;">Prévia em alta resolução</span>
-        <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:8px;">Substitua o arquivo na pasta correspondente para ver a foto/vídeo real do seu casamento!</span>
+        <span style="font-size:0.8rem;color:rgba(255,255,255,0.6);margin-top:8px;">Substitua o arquivo na pasta correspondente para ver a foto ou o vídeo real da sua apresentação!</span>
       `;
       modalContent.appendChild(placeholder);
     }
