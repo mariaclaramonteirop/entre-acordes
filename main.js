@@ -239,6 +239,7 @@ document.querySelectorAll('.faq-pergunta').forEach(btn => {
 const form    = document.getElementById('contato-form');
 const success = document.getElementById('form-success');
 const telefoneInput = document.getElementById('telefone');
+const telefoneSecundarioInput = document.getElementById('telefone-secundario');
 
 function aplicarMascaraTelefone(valor) {
   const numeros = valor.replace(/\D/g, '').slice(0, 11);
@@ -261,6 +262,12 @@ if (telefoneInput) {
   });
 }
 
+if (telefoneSecundarioInput) {
+  telefoneSecundarioInput.addEventListener('input', () => {
+    telefoneSecundarioInput.value = aplicarMascaraTelefone(telefoneSecundarioInput.value);
+  });
+}
+
 if (form && success) {
   form.addEventListener('submit', (e) => {
     e.preventDefault();
@@ -269,6 +276,7 @@ if (form && success) {
       nome_noivo:     form.nome_noivo?.value.trim()     || '',
       nome_noiva:     form.nome_noiva?.value.trim()     || '',
       telefone:       form.telefone?.value.trim()       || '',
+      telefone_secundario: form.telefone_secundario?.value.trim() || '',
       tipo_evento:    form.tipo_evento?.value           || '',
       data_evento:    form.data_evento?.value           || '',
       horario_evento: form.horario_evento?.value        || '',
@@ -277,6 +285,7 @@ if (form && success) {
     };
 
     const telefoneNumeros = data.telefone.replace(/\D/g, '');
+    const telefoneSecundarioNumeros = data.telefone_secundario.replace(/\D/g, '');
 
     if (!data.nome_noivo || !telefoneNumeros || !data.tipo_evento || !data.data_evento || !data.horario_evento) {
       alert('Por favor, preencha os campos obrigatórios (marcados com *).');
@@ -284,6 +293,10 @@ if (form && success) {
     }
     if (telefoneNumeros.length < 10) {
       alert('Por favor, informe um WhatsApp ou telefone válido com DDD.');
+      return;
+    }
+    if (telefoneSecundarioNumeros && telefoneSecundarioNumeros.length < 10) {
+      alert('Por favor, informe um segundo telefone válido com DDD ou deixe o campo em branco.');
       return;
     }
 
@@ -317,8 +330,9 @@ Gostaria de solicitar um orçamento:
 
 *Nome(s):* ${nomesFormatados}
 *Telefone:* ${data.telefone}
+${data.telefone_secundario ? `*Outro telefone:* ${data.telefone_secundario}\n` : ''}*Evento:* ${tipoFormatado}${infoDataHora}${data.local ? '\n*Local:* ' + data.local : ''}${msgDetalhes}
 *Evento:* ${tipoFormatado}${infoDataHora}${data.local ? '\n*Local:* ' + data.local : ''}${msgDetalhes}
-  _Aguardo Retorno, Obrigada!_
+_Aguardo Retorno, Obrigada!_
 `
     );
 
