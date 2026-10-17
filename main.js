@@ -292,7 +292,7 @@ Gostaria de solicitar um orçamento:
 *Evento:* ${tipoFormatado}${infoDataHora}${data.local ? '\n*Local:* ' + data.local : ''}${msgDetalhes}`
     );
 
-    window.open(`https://wa.me/5522981113417?text=${wppMsg}`, '_blank');
+    window.open(`https://wa.me/${WHATSAPP_NUMBERS.primary}?text=${wppMsg}`, '_blank');
 
     form.style.display = 'none';
     success.style.display = 'block';
