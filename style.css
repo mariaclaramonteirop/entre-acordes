@@ -2201,6 +2201,53 @@ footer {
     margin: 16px auto 36px;
   }
 
+  .insta-section {
+    padding: 64px 20px;
+  }
+
+  .insta-container > * {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .insta-content {
+    overflow-wrap: anywhere;
+  }
+
+  .insta-content .section-tag {
+    font-size: 0.62rem;
+    letter-spacing: 0.16em;
+  }
+
+  .insta-content h2 {
+    font-size: clamp(1.85rem, 8vw, 2.4rem);
+    overflow-wrap: anywhere;
+  }
+
+  .insta-content p {
+    font-size: 0.94rem;
+    overflow-wrap: anywhere;
+  }
+
+  .insta-actions {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  .btn-insta {
+    justify-content: center;
+    padding: 14px 18px;
+    font-size: 0.78rem;
+    letter-spacing: 0.08em;
+  }
+
+  .indica-link {
+    display: block;
+    text-align: center;
+  }
+
   .btn-hero-translucido {
     width: 100%;
     max-width: 290px;
