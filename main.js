@@ -317,7 +317,9 @@ Gostaria de solicitar um orçamento:
 
 *Nome(s):* ${nomesFormatados}
 *Telefone:* ${data.telefone}
-*Evento:* ${tipoFormatado}${infoDataHora}${data.local ? '\n*Local:* ' + data.local : ''}${msgDetalhes}`
+*Evento:* ${tipoFormatado}${infoDataHora}${data.local ? '\n*Local:* ' + data.local : ''}${msgDetalhes}
+  _Aguardo Retorno, Obrigada!_
+`
     );
 
     window.open(`https://wa.me/${WHATSAPP_NUMBERS.primary}?text=${wppMsg}`, '_blank');
